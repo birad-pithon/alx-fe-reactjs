@@ -2,6 +2,7 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: Arial, sans-serif; /*default font */
   min-height: 100vh; /*full height of the viewport */
   margin: 0;
   padding: 0;
@@ -14,7 +15,8 @@ main {
 }
 /*article takes 2/3 width*/
 article {
-    flex: 2;
+    display:inline-block; /*allow inline elements */
+    flex: 2; /*take 2/3 of the width */
     overflow-y: auto; /*scroll if content overflows vertically */
     padding: 1em; 
     background-color: #edd2d2;
@@ -37,21 +39,22 @@ header, footer {
 }
 /* Optional: Style main content area */
 header, .logo{
-    display:flex;
+    display: flex; /* Center the logo horizontally */
     justify-content: left; /* Center the logo horizontally */
     align-items: center; /* Center the logo vertically */
     height: 50px; /* Set a fixed height for the header */
     background-color: #efae80;
-    
+
     font-size: 2em;
     font-weight: bold;
     padding-right: 1em /* Set a fixed height for the header */
 }
 article, aside{
-    max max-height: 500px;
-    /* Limit the height of article and aside to 500px */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds 500px */
+    max-height: 100px;
+    /* Limit the height 
+    of article and aside to 100px */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds 100px */
     padding: 1.5em;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* Add a border for better separation */
+    font-size: 1.2em; /* Set a larger font size for better readabili
 }
-
