@@ -10,8 +10,9 @@ function App() {
 
   return (
     <>
-      <div>
-        <WelcomeMessage/>
+      <div className='App'>
+        <WelcomeMessage/> {/* ← add this */}
+        {/* other components or code... */}
       </div>
          
       <div>
