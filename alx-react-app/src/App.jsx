@@ -9,7 +9,23 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 
+describe('App component', () => {
+  beforeEach(() =>{
+    render(<App/>);
+  });
 
+  it('renders Header component', () =>{
+    expect(screen.getByRole('heading', {name: /My Favorite Cities/i })).toBeInTheDocument();
+  });
+
+  it('renders MainContent component', () => {
+    expect(screen.getByText(/I love to visit New York, Paris, and Tokyo\./i)).toBeInTheDocument();
+  });
+
+  it('renders Footer component', () => {
+    expect(screen.getByText(/@ 2023 City Lovers/i)).toBeInTheDocument();
+  });
+});
 
 function App() {
   const [count, setCount] = useState(0)
