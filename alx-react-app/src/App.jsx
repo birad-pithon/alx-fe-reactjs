@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import WelcomeMessage from './components/WelcomeMessage'; // import the new component
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -11,9 +15,13 @@ function App() {
   return (
     <>
       <div className='App'>
+        <Header/>
+        <MainContent/>
+        <Footer/>
         <WelcomeMessage/> {/* ← add this */}
         {/* other components or code... */}
       </div>
+      
          
       <div>
         <a href="https://vite.dev" target="_blank">
