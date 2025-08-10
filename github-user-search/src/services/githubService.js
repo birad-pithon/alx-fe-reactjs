@@ -2,6 +2,12 @@ import axios from "axios";
 
 const BASE_URL = "https://api.github.com/users";
 
+/**
+ * Fetch a GitHub user's data
+ * @param {string} username 
+ * @returns {Promise<object>}
+ */
+
 export async function fetchUserData(username) {
   try {
     const headers = {};
