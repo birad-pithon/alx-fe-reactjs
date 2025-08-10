@@ -4,6 +4,47 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Search from "./components/Search"
 
+export default function App() {
+  const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/search/users?q=${username}+location:${location}+repos:>${minRepos}`
+      );
+      const data = await response.json();
+      setUsers(data.items || []);
+    } catch {
+      setError("Failed to fetch users");
+    } finally {
+      setLoading(false);
+    }
+  };
+};
+return (
+  <Search
+      handleSubmit={handleSubmit}
+      username={username}
+      setUsername={setUsername}
+      location={location}
+      setLocation={setLocation}
+      minRepos={minRepos}
+      setMinRepos={setMinRepos}
+      users={users}
+      loading={loading}
+      error={error}
+    />
+)
+
 function App() {
   const [count, setCount] = useState(0)
 
