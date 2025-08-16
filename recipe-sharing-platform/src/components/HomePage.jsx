@@ -14,7 +14,7 @@ function HomePage() {
             <h1 className="text-3xl font-bold text-center mb-6">
                 Recipe Sharing Platform
             </h1>
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 {setRecipes.map((recipe) => (
                     <Link
                       to={`/recipe/${recipe.id}`}
