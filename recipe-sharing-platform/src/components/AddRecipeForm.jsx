@@ -6,35 +6,40 @@ function AddRecipeForm() {
     const [steps, setSteps] = useState("");
     const [errors, setErrors] = useState({});
 
+    const validate = () => {
+      let newErrors = {};
+
+      if (!title.trim()) newErrors.title = "Title is required";
+      if (!ingredients.trim()) newErrors.ingredients = "ingredients are required";
+      if (!steps.trim()) newErrors.steps = "Preparation steps are required";
+      if (ingredients.split(",").length < 2) {
+        newErrors.ingredients = "Please include at least two ingredients (coma-separated)";
+
+      }
+
+      return newErrors;
+    };
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // simple validation
-        let newErrors = {};
-        if (!title.trim()) newErrors.title = "Title is required";
-        if (!ingredients.trim()) newErrors.ingredients = "ingredients are required";
-        if (!steps.trim()) newErrors.steps = "Preparation steps are required";
-
-        // optional: check for at least two ingredients
-        if (ingredients.split(",").length < 2){
-            newErrors.ingredients = "Please include at least two ingredients (comma-separated)";
-        }
-
-        setErrors(newErrors);
+        const newErrors = validate();
+        setErrors(newError);
 
         if (Object.keys(newErrors).length === 0) {
-            // simulate saving (you could later connect this to state or backend)
-            console.log({
-                title,
-                ingredients: ingredients.split(","),
-                steps,
-            });
+          AddRecipeForm({
+            title,
+            summary: steps.slice(0, 50) + "...",
+            ingredients: ingredients.split(","),
+            steps,
+            image: "https://via.placeholder.com/150",
+          });
 
-            // reset form
-            setTitle("");
+           setTitle("");
             setIngredients("");
             setSteps("");
-            alert("Recipe added successfully!");
+            Navigate("/");
         }
     };
 
