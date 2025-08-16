@@ -2,17 +2,35 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, data } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import RecipeDetail from './components/RecipeDetail';
+import AddRecipeForm from './components/AddRecipeForm';
+
 
 function App() {
-  return(
+  const [recipes, setRecipes] = useState(data);
+
+  // function to add new recipe
+  const addRecipe = (newRecipe) => {
+    setRecipes([...recipes, { id: recipes.length + 1, ...newRecipe }]);
+  };
+
+
+  return (
     <Router>
-      <Routes>
-        <Route path= "/" element={<HomePage />} />
-        <Route path="/recipe/:id" element={<RecipeDetail />} />
-      </Routes>
+      <div className="p-6">
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Recipe Sharing Platform
+        </h1>
+
+
+        <Routes>
+          <Route path= "/" element={<HomePage />} />
+          <Route path="/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/add-recipe" element={<AddRecipeForm/>} />
+        </Routes>
+      </div>
     </Router>
   );
 
@@ -44,4 +62,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
