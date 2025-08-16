@@ -45,15 +45,15 @@ function AddRecipeForm() {
 
     return(
       <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-2xl mt-8">
-         <h2 className="text-2xl font-bold mb-4 text-center">Add a New Recipe</h2>
-         <form onSubmit={handleSubmit} className="space-y-4">
+       <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+         <h2 className="text-2xl font-bold mb-4 text-center">Add New Recipe</h2>  
         
            {/* Title */}
-           <div>
-             <label className="block mb-1 font-medium">Recipe Title</label>
+           <div className="mb-4">
+             <label className="block text-gray-700 font-medium mb-2">Recipe Title</label>
              <input
                type="text"
-               className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+               className="w-full md:w-3/4 p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
                value={title}
                onChange={(e) => setTitle(e.target.value)}
              />
@@ -61,10 +61,10 @@ function AddRecipeForm() {
            </div>
 
            {/* Ingredients */}
-           <div>
-              <label className="block mb-1 font-medium">Ingredients (comma-separated)</label>
+           <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">Ingredients (comma-separated)</label>
               <textarea
-                className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full md:w-3/4 p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
                 rows="3"
                 value={ingredients}
                 onChange={(e) => setIngredients(e.target.value)}
@@ -76,9 +76,9 @@ function AddRecipeForm() {
 
            {/* Steps */}
            <div>
-             <label className="block mb-1 font-medium">Preparation Steps</label>
+             <label className="block text-gray-700 font-medium mb-2">Preparation Steps</label>
              <textarea
-               className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+               className="w-full md:w-3/4 p-2 border rounded focus:outline-none focus:ring focus:ring-blue-300"
                rows="4"
                value={steps}
                onChange={(e) => setSteps(e.target.value)}
@@ -93,8 +93,8 @@ function AddRecipeForm() {
            >
              Add Recipe
            </button>
-         </form>
-       </div> 
+       </form>
+      </div> 
     );
 }
 
