@@ -1,10 +1,16 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import data from "../data.json";
 
 function RecipeDetail() {
   const { id } = useParams();
-  const recipe = data.find((r) => r.id === parseInt(id));
+  const [recipe, setRecipe] = useState(null);
+
+  useEffect(() =>{
+    const found = data.find((r) => r.id === parseInt(id));
+    setRecipe(found);
+  }, [id]);
+
 
   if (!recipe) return <p className="text-center mt-10">Recipe not found!</p>;
 
